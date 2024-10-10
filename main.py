@@ -49,30 +49,30 @@ class TestUrbanRoutes:
         cls.routes_page = UrbanRoutesPage(cls.driver)
 class UrbanRoutesPage:
 
-    #Direccion
+    # Dirección
     driver = None
     from_field = (By.ID, 'from')
     to_field = (By.ID, 'to')
 
-    #Abrir el formulario de reserva
+    # Abrir formulario de reserva
     order_a_taxi_button = (By.XPATH, '//*[@id="root"]/div/div[3]/div[3]/div[1]/div[3]/div[1]/button')
     comfort_tariff_button = (By.XPATH, '//*[@id="root"]/div/div[3]/div[3]/div[2]/div[1]/div[5]')
     comfort_card = (By.XPATH, '//*[@id="root"]/div/div[3]/div[3]/div[2]/div[2]')
 
-    #Agregar un numero de telefono
-    # Clic al campo numero de telefono
+    # AGREGAR NUMERO TELEFONICO
+    # Clic al campo número de teléfono
     phone_form = (By.XPATH, '//*[@id="root"]/div/div[3]/div[3]/div[2]/div[2]/div[1]/div')
-    # Ingresar numero de telefono
+    # Ingresar número de telefono
     phone_number_field = (By.ID, 'phone')
-    # Boton siguiente al ingresar numero de telefono
+    # Botón siguiente al ingresar número de telefono
     next_button = (By.XPATH, '//*[@id="root"]/div/div[1]/div[2]/div[1]/form/div[2]/button')
-    # Agregar el code
+    # Agregar code
     phone_code_field = (By.ID, 'code')
-    # Clic boton confirmar code
+    # Clic botón confirmar code
     confirm_phone_code_button = (By.XPATH, '//*[@id="root"]/div/div[1]/div[2]/div[2]/form/div[2]/button[1]')
-    # Seleccionar Forma de pago
+    # Seleccionar forma de pago
 
-    #Agregar una tarjeta de credito
+    # Agregar una tarjeta de credito
     payment_method_container = (By.XPATH, '//*[@id="root"]/div/div[3]/div[3]/div[2]/div[2]/div[2]')
     add_a_credit_card = (By.XPATH, '//*[@id="root"]/div/div[2]/div[2]/div[1]/div[2]/div[3]')
     card_number_field = (By.ID, 'number')
@@ -80,16 +80,16 @@ class UrbanRoutesPage:
     link_button = (By.XPATH, '//*[@id="root"]/div/div[2]/div[2]/div[2]/form/div[3]/button[1]')
     close_payment_method_modul = (By.XPATH, '//*[@id="root"]/div/div[2]/div[2]/div[1]/button')
 
-    #Agregar un comentario para el conductor
+    # Agregar un comentario para el conductor
     comment_field = (By.ID, 'comment')
 
-    #Requisitos del pedido
+    # Requisitos del pedido
     requirements_display = (By.XPATH, '//*[@id="root"]/div/div[3]/div[3]/div[2]/div[2]/div[4]')
     blanket_and_scarves_toggle_button = (By.XPATH, '//*[@id="root"]/div/div[3]/div[3]/div[2]/div[2]/div[4]/div[2]/div[1]/div/div[2]/div/span')
     icecream_counter_plus = (By.XPATH, '//*[@id="root"]/div/div[3]/div[3]/div[2]/div[2]/div[4]/div[2]/div[3]/div/div[2]/div[1]/div/div[2]/div/div[3]')
     icecream_counter_value = (By.XPATH, '//*[@id="root"]/div/div[3]/div[3]/div[2]/div[2]/div[4]/div[2]/div[3]/div/div[2]/div[1]/div/div[2]/div/div[2]')
 
-    #Reservar un taxi
+    # Reservar un taxi
     book_a_taxi_button = (By.CLASS_NAME, 'smart-button-wrapper')
     wait_for_a_driver_screen = (By.XPATH, '//*[@id="root"]/div/div[5]/div[2]/div[2]')
     order_shown = (By.XPATH, '//*[@id="root"]/div/div[5]/div[2]')
@@ -149,7 +149,7 @@ class UrbanRoutesPage:
         self.driver.find_element(*self.confirm_phone_code_button).click()
         time.sleep(2)
 
-    # Agregar una tarjeta de credito
+    # Agregar una tarjeta de crédito
     def click_payment_method(self):
         self.driver.find_element(*self.payment_method_container).click()
 
