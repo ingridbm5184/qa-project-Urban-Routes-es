@@ -97,7 +97,7 @@ class UrbanRoutesPage:
     def __init__(self, driver):
         self.driver = driver
 
-    # Direccion
+    # Dirección
     def set_route(self, from_address, to_address):
         WebDriverWait(self.driver, 3).until(EC.visibility_of_element_located(self.from_field))
         self.driver.find_element(*self.from_field).send_keys(from_address)
@@ -123,7 +123,7 @@ class UrbanRoutesPage:
         WebDriverWait(self.driver, 3).until(EC.presence_of_element_located(self.comfort_card))
         return self.driver.find_element(*self.comfort_card).is_displayed()
 
-    # Agregar un numero de telefono
+    # Agregar un número telefónico
     def click_phone_form(self):
         self.driver.find_element(*self.phone_form).click()
 
@@ -205,7 +205,7 @@ class UrbanRoutesPage:
 
         return self.driver.find_element(*self.icecream_counter_value).text
 
-    #Reservar un taxi
+    # Reservar un taxi
     def click_book_a_taxi_button(self):
         self.driver.find_element(*self.book_a_taxi_button).click()
 
@@ -238,15 +238,15 @@ class TestUrbanRoutes:
         assert routes_page.get_from() == address_from
         assert routes_page.get_to() == address_to
 
-    #Pide un taxi con la tarifa comfort y comprueba que el formulario de dicha tarifa este presente
+    # Pide un taxi con la tarifa comfort y comprueba que el formulario de dicha tarifa este presente
     def test_select_comfort_tariff(self):
 
         self.routes_page.click_order_a_taxi_button()
         self.routes_page.click_comfort_tariff()
         assert self.routes_page.is_comfort_tariff_displayed()
 
-    #Abre el formulario de telefono, rellena el campo
-    #Comprueba que el numero que la aplicacion recibe sea igual al enviado
+    # Abre el formulario de teléfono, rellena el campo
+    # Comprueba que el número que la aplicación recibe sea igual al enviado
 
     def test_set_phone(self):
 
@@ -278,21 +278,21 @@ class TestUrbanRoutes:
         self.routes_page.click_link_button()
         self.routes_page.click_close_payment_method_button()
 
-    #Comprueba que se pueda añadir un comentario
+    # Comprueba que se pueda añadir un comentario
     def test_set_comment(self):
         self.routes_page.set_comment(data.message_for_driver)
         self.routes_page.get_comment()
         assert self.routes_page.get_comment() == data.message_for_driver
 
-    #Comprueba que el toggle button de manta y pañuelos quede seleccionado despues de
-    #click en el
+    # Comprueba que el toggle button de manta y pañuelos quede seleccionado despues de
+    # click en el
     def test_add_blanket_and_scarves(self):
         self.routes_page.click_requirements_display()
         self.routes_page.click_blanket_and_scarves_toggle_button()
         assert self.routes_page.is_blanket_and_scarves_selected()
 
-    #Comprueba que el contador de helados sea igual a 2 despues de dar click 2 veces en
-    #el boton '+'
+    # Comprueba que el contador de helados sea igual a 2 después de dar click 2 veces en
+    # el boton '+'
     def test_add_2_icecream(self):
         self.routes_page.click_add_2_icecream()
         assert self.routes_page.get_icecream_counter() == '2'
