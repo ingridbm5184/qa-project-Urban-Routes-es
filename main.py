@@ -56,7 +56,7 @@ class UrbanRoutesPage:
 
     # Abrir formulario de reserva
     order_a_taxi_button = (By.XPATH, '//*[@id="root"]/div/div[3]/div[3]/div[1]/div[3]/div[1]/button')
-    comfort_tariff_button = (By.XPATH, '//*[@id="root"]/div/div[3]/div[3]/div[2]/div[1]/div[5]')
+    comfort_tariff_button = (By.CSS_SELECTOR, '#root > div > div.workflow > div.workflow-subcontainer > div.tariff-picker.shown > div.tariff-cards > div:nth-child(5)')
     comfort_card = (By.XPATH, '//*[@id="root"]/div/div[3]/div[3]/div[2]/div[2]')
 
     # AGREGAR NUMERO TELEFONICO
@@ -69,26 +69,25 @@ class UrbanRoutesPage:
     # Agregar code
     phone_code_field = (By.ID, 'code')
     # Clic botón confirmar code
-    confirm_phone_code_button = (By.XPATH, '//*[@id="root"]/div/div[1]/div[2]/div[2]/form/div[2]/button[1]')
+    confirm_phone_code_button = (By.CSS_SELECTOR, '#root > div > div.number-picker.open > div.modal > div.section.active > form > div.buttons > button:nth-child(1)')
     # Seleccionar forma de pago
 
     # Agregar una tarjeta de credito
     payment_method_container = (By.XPATH, '//*[@id="root"]/div/div[3]/div[3]/div[2]/div[2]/div[2]')
-    add_a_credit_card = (By.XPATH, '//*[@id="root"]/div/div[2]/div[2]/div[1]/div[2]/div[3]')
+    add_a_credit_card = (By.CSS_SELECTOR, '#root > div > div.payment-picker.open > div.modal > div.section.active > div.pp-selector > div.pp-row.disabled')
     card_number_field = (By.ID, 'number')
     credit_card_code_field = (By.XPATH, '//*[@id="code" and contains(@class, "card-input")]')
-    link_button = (By.XPATH, '//*[@id="root"]/div/div[2]/div[2]/div[2]/form/div[3]/button[1]')
+    link_button = (By.CSS_SELECTOR, '#root > div > div.payment-picker.open > div.modal.unusual > div.section.active.unusual > form > div.pp-buttons > button:nth-child(1)')
     close_payment_method_modul = (By.XPATH, '//*[@id="root"]/div/div[2]/div[2]/div[1]/button')
 
     # Agregar un comentario para el conductor
     comment_field = (By.ID, 'comment')
 
     # Requisitos del pedido
-    requirements_display = (By.XPATH, '//*[@id="root"]/div/div[3]/div[3]/div[2]/div[2]/div[4]')
+    requirements_display = (By.CSS_SELECTOR, '#root > div > div.workflow > div.workflow-subcontainer > div.tariff-picker.shown > div.form > div.reqs.open > div.reqs-body > div:nth-child(1) > div > div.r-sw > div > span')
     blanket_and_scarves_toggle_button = (By.XPATH, '//*[@id="root"]/div/div[3]/div[3]/div[2]/div[2]/div[4]/div[2]/div[1]/div/div[2]/div/span')
-    icecream_counter_plus = (By.XPATH, '//*[@id="root"]/div/div[3]/div[3]/div[2]/div[2]/div[4]/div[2]/div[3]/div/div[2]/div[1]/div/div[2]/div/div[3]')
-    icecream_counter_value = (By.XPATH, '//*[@id="root"]/div/div[3]/div[3]/div[2]/div[2]/div[4]/div[2]/div[3]/div/div[2]/div[1]/div/div[2]/div/div[2]')
-
+    icecream_counter_plus = (By.CSS_SELECTOR, '#root > div > div.workflow > div.workflow-subcontainer > div.tariff-picker.shown > div.form > div.reqs.open > div.reqs-body > div.r.r-type-group > div > div.r-group-items > div:nth-child(1) > div > div.r-counter > div > div.counter-plus')
+    icecream_counter_value = (By.CSS_SELECTOR, '#root > div > div.workflow > div.workflow-subcontainer > div.tariff-picker.shown > div.form > div.reqs.open > div.reqs-body > div.r.r-type-group > div > div.r-group-items > div:nth-child(1) > div > div.r-counter > div > div.counter-value')
     # Reservar un taxi
     book_a_taxi_button = (By.CLASS_NAME, 'smart-button-wrapper')
     wait_for_a_driver_screen = (By.XPATH, '//*[@id="root"]/div/div[5]/div[2]/div[2]')
